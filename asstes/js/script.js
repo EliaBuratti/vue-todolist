@@ -36,7 +36,7 @@ createApp({
   methods: {
     
         addList () {
-            
+                   
 
             //verifico che non sia vuoto il campo 
             if (this.newTodo !== ''){
@@ -51,12 +51,13 @@ createApp({
                 //mostro l'errore
                 this.error = true;
             }
-            console.log(this.toDo);
+
+            //svuoto il campo input
+            this.newTodo = '';
         },
 
         //rimuovo l'elemento dalla lista
         removeList(i) {
-            console.log(i);
             this.toDo.splice(i,1);
         },
 
