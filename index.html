@@ -25,8 +25,8 @@
             <h1>Lista delle cose che devo fare</h1>
 
             <div class="input-group mb-3">
-                <input type="text" v-model="newTodo" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" @click="addList()" type="button" id="button-addon2">Button</button>
+                <input type="text" v-model="newTodo" @keyup.enter="addList()" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" autofocus >
+                <button class="btn btn-outline-secondary" @click="addList()" type="button" id="button-addon2">Aggiungi</button>
             </div>
             <p v-show="error">Inserisci una cosa che devi fare.</p>
 
