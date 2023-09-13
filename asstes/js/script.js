@@ -54,14 +54,11 @@ createApp({
             console.log(this.toDo);
         },
 
-        removeList(array, i) {
-            this.toDo.splice(this.toDo[i],1);
+        //rimuovo l'elemento dalla lista
+        removeList(i) {
+            console.log(i);
+            this.toDo.splice(i,1);
         },
-
-        prova () {
-            console.log('enter premuto');
-        }
-
 
     }, 
 
