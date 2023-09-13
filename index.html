@@ -10,6 +10,9 @@
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- style css -->
     <link rel="stylesheet" href="./asstes/css/style.css" />
 </head>
@@ -17,6 +20,32 @@
 <body>
 
     <div id="app">
+
+        <div class="container w-75">
+            <h1>Lista delle cose che devo fare</h1>
+
+            <div class="input-group mb-3">
+                <input type="text" v-model="newTodo" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" @click="addList()" type="button" id="button-addon2">Button</button>
+            </div>
+            <p v-show="error">Inserisci una cosa che devi fare.</p>
+
+            <div class="todoList w-75 m-auto">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center"  v-for="(doing, index) in toDo" :key="doing">
+                        <span :class="doing.done ? 'complete' : '' ">
+                            {{doing.text}}
+                        </span>
+
+                        <div class="function">
+                            <i v-show="!doing.done" class="fa-regular fa-square-check fa-xl me-3" @click="doing.done = true"></i>
+                            <i class="fa-regular fa-trash-can fa-lg" @click="removeList(doing, index)"></i>
+                        </div>
+                        
+                    </li>
+                  </ul>
+            </div>
+        </div>
 
 
     </div>
