@@ -31,19 +31,24 @@
             <p v-show="error">Inserisci una cosa che devi fare.</p>
 
             <div class="todoList w-75 m-auto">
-                <ul class="list-group">
+                <ul class="list-group" v-if="toDo.length > 0">
                     <li class="list-group-item d-flex justify-content-between align-items-center"  v-for="(doing, index) in toDo" :key="doing">
-                        <span :class="doing.done ? 'complete' : '' ">
+                        <span :class="doing.done ? 'complete' : '' "> <!-- :class="{'complete' : doing.done}"  potevo fare anche cosi!! -->
                             {{doing.text}}
                         </span>
 
                         <div class="function">
+                            <!-- check fattto -->
                             <i v-show="!doing.done" class="fa-regular fa-square-check fa-xl me-3" @click="doing.done = true"></i>
+
+                            <!-- bottone per cancellare la task -->
                             <i class="fa-regular fa-trash-can fa-lg" @click="removeList(index)"></i>
                         </div>
                         
                     </li>
-                  </ul>
+                </ul>
+
+                <p v-else >Complimenti! non hai più cose da fare</p>
             </div>
         </div>
 

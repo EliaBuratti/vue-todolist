@@ -45,7 +45,7 @@ createApp({
                 this.error = false;
 
                 //pusho nell'array il testo e il done
-                this.toDo.push({text: this.newTodo, done: false});
+                this.toDo.push({text: this.newTodo, done: false}); // unshift pusha all'inizio dell'array, mentre push alla fine
             } else {
 
                 //mostro l'errore
